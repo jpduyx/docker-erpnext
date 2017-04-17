@@ -1,5 +1,5 @@
-FROM lukptr/ubuntu:16.04-23112016
-MAINTAINER lukptr <lukptr@ridhosribumi.com>
+FROM ubuntu:16.04
+MAINTAINER JPDuyx based on lukptr <lukptr@ridhosribumi.com>
 
 ENV FRAPPE_USER=frappe \
     MYSQL_PASSWORD=12345678 \
