@@ -8,6 +8,7 @@ ENV FRAPPE_USER=frappe \
     DEBIAN_FRONTEND=noninteractive
 RUN useradd $FRAPPE_USER && mkdir /home/$FRAPPE_USER && chown -R $FRAPPE_USER.$FRAPPE_USER /home/$FRAPPE_USER
 WORKDIR /home/$FRAPPE_USER
+RUN apt update && apt install -y wget sed && rm -rf /var/lib/apt/lists/*
 RUN wget https://raw.githubusercontent.com/frappe/bench/master/playbooks/install.py && sed -i "s/'', ''/'$MYSQL_PASSWORD', '$ADMIN_PASSWORD'/g" install.py
 COPY setup.sh /
 RUN bash /setup.sh
