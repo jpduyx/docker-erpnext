@@ -14,7 +14,7 @@ RUN  wget https://raw.githubusercontent.com/frappe/bench/master/playbooks/instal
      sed -i "s/'', ''/'$MYSQL_PASSWORD', '$ADMIN_PASSWORD'/g" install.py && \
      python install.py --production && \
      apt-get -y autoremove && apt-get clean && \
-     rm -rf /var/lib/apt/lists/*  /tmp/* /var/tmp/ /home/$FRAPPE_USER/.cache && \ 
+     rm -rf /var/lib/apt/lists/*  /tmp/* /var/tmp/ /home/$FRAPPE_USER/.cache
      
 COPY all.conf /etc/supervisor/conf.d/
 EXPOSE 80
